@@ -16075,6 +16075,29 @@
         type="text/javascript">if (!window.mainTracker) { window.mainTracker = 'tilda'; }
             window.tildastatcookie = 'no'; setTimeout(function () { (function (d, w, k, o, g) { var n = d.getElementsByTagName(o)[0], s = d.createElement(o), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.key = k; s.id = "tildastatscript"; s.src = g; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, '80161a13b8e99cd24976a749b865ec92', 'script', 'https://static.tildacdn.com/js/tilda-stat-1.0.min.js'); }, 2000);</script>
     <script type="text/javascript" src="./index2_files/json.txt"></script>
+    <script>
+        const form = document.querySelector("form");
+
+        form.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: "POST",
+                body: formData
+            })
+                .then(() => {
+                    alert("Анкета успешно отправлена!");
+                    form.reset();
+                })
+                .catch(() => {
+                    alert("Ошибка отправки");
+                });
+
+        });
+    </script>
 </body>
 
 </html>
